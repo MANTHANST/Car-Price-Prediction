@@ -23,7 +23,7 @@ cars = pd.read_csv("Cleaned Car.csv")
 st.title("Car Price Prediction")
 
 com = st.selectbox("Select Company", options = ["Select Company"] + sorted(cars["company"].drop_duplicates()))
-mod = st.selectbox("Select Model", options =  get_models(com))
+mod = st.selectbox("Select Model", options = ["Select Model"] + get_models(com))
 
 col1, col2, col3 = st.columns(3)
 with col1:
