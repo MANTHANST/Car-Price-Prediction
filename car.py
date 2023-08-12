@@ -41,4 +41,4 @@ if st.button("Predict", use_container_width = True):
         st.write(centered_bold_label, unsafe_allow_html=True)
         # st.write("Prediction : ₹", predict_price())
     except:
-        st.write("Please Select From Every Option")
+        st.error("Please Select From Every Option")
