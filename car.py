@@ -13,12 +13,8 @@ def get_models(company):
 
 def predict_price():
 
-    try:
-        prediction = model.predict(pd.DataFrame([[mod, com, yop, kt, ft]], columns=["name", "company", "year", "kms_driven", "fuel_type"]))
-        return "{:,}".format(np.round(prediction[0], 0))
-    except:
-        st.write("All Options Not Filled")
-
+    prediction = model.predict(pd.DataFrame([[mod, com, yop, kt, ft]], columns=["name", "company", "year", "kms_driven", "fuel_type"]))
+    return "{:,}".format(np.round(prediction[0], 0))
 
 model = pickle.load(open("LinearRegreessionModel.pkl", "rb"))
 
@@ -45,4 +41,4 @@ if st.button("Predict", use_container_width = True):
         st.write(centered_bold_label, unsafe_allow_html=True)
         # st.write("Prediction : ₹", predict_price())
     except:
-        st.write("Select From Every Option")
+        st.write("Please Select From Every Option")
